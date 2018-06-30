@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import "StyleVars";
+
+body {
+    background-color: $background;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+
+input {
+    font-size: 13px;
+    height: 20px;
+    margin: 5px;
+    padding: 5px 10px;
+    width: 200px;
+    font-family: 'Lato', sans-serif;
+}
+
+button {
+    background-color: $white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    padding: 10px 15px;
+
+    &:hover {
+        background-color: $white_dark;
+    }
+
+    &.btn-primary {
+        background-color: $blue1;
+        color: $white;
+
+        &:hover {
+            background-color: $blue1_dark;
+        }
+    }
+}

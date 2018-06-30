@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import "../css/LoginForm.css";
+
 interface Props {
     addLoginToken: (username: string, token: string) => void;
 }
@@ -72,7 +74,8 @@ class Login extends React.Component<Props, State> {
 
     render() {
         return (
-            <div>
+            <div className="unauthenticated-app">
+                <h1>Condor</h1>
                 {
                     this.state.error !== null &&
                     <div>
@@ -86,6 +89,7 @@ class Login extends React.Component<Props, State> {
                             name="username"
                             type="text"
                             placeholder="Username"
+                            autoComplete="off"
                             ref={c => (this._input = c)}
                             value={this.state.username}
                             onChange={this.handleChange}
@@ -102,7 +106,7 @@ class Login extends React.Component<Props, State> {
                         />
                     </div>
                     <div>
-                        <button>Log In</button>
+                        <button className="btn-primary">Log In</button>
                     </div>
                 </form>
             </div>

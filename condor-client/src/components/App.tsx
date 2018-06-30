@@ -2,6 +2,8 @@ import * as React from "react";
 
 import LoginFormContainer from "../containers/LoginFormContainer";
 
+import "../css/App.css";
+
 interface Props {
     username?: string;
     token?: string;
@@ -36,14 +38,11 @@ class App extends React.Component<Props> {
     render() {
         if (this.props.username === undefined) {
             return (
-                <div className="unauthenticated-app">
-                    <h1>Condor</h1>
-                    <LoginFormContainer />
-                </div>
+                <LoginFormContainer />
             );
         } else {
             return (
-                <div>
+                <div className="app">
                     <div>
                         User {this.props.username} is logged in.
                     </div>
