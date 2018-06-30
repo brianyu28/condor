@@ -1,0 +1,14 @@
+{
+  "name": "condor",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "cd condor-server && npm install && npm run start",
+    "client": "cd condor-client && yarn && npm run start",
+    "server": "cd condor-server && yarn && npm run start",
+    "postinstall": "npm install --prefix condor-server && npm install --only=dev --prefix condor-server && npm install --prefix condor-client && npm install --only=dev --prefix condor-client && npm run build --prefix condor-client && npm run build --prefix condor-server"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.0"
+  },
+  "dependencies": {}
+}
