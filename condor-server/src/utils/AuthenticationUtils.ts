@@ -24,8 +24,6 @@ export let addToken = async (user: UserModel) => {
 };
 
 export let removeToken = async (user: UserModel, token: string) => {
-    console.log("Remove Token");
-    console.log(token);
     const result = await User.updateOne({
         "_id": mongoose.Types.ObjectId(user._id)
     }, {

@@ -45,7 +45,7 @@ class App extends React.Component<Props> {
             return (
                 <div>
                     <div>
-                        User is logged in.
+                        User {this.props.username} is logged in.
                     </div>
                     <button onClick={this.logout}>Log Out</button>
                 </div>

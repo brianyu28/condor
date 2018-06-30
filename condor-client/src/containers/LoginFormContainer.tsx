@@ -1,5 +1,5 @@
-import { connect, Dispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
 import * as Actions from "../actions/Actions";
 import * as Reducers from "../reducers/Reducers";
