@@ -3,9 +3,9 @@ import { bindActionCreators, Dispatch } from "redux";
 
 import * as Actions from "../actions/Actions";
 import * as Reducers from "../reducers/Reducers";
-import { ApplicationState, defaultState } from "../reducers/State";
+import { ApplicationState } from "../reducers/State";
 
-import App from "../components/App";
+import Header from "../components/Header";
 
 export function mapStateToProps(state: ApplicationState) {
   return {
@@ -14,4 +14,10 @@ export function mapStateToProps(state: ApplicationState) {
   };
 }
 
-export default connect(mapStateToProps, null)(App);
+export function mapDispatchToProps(dispatch: Dispatch) {
+    return {
+        logout: () => { dispatch(Actions.LOGOUT()); }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

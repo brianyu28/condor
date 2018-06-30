@@ -75,6 +75,7 @@ class Login extends React.Component<Props, State> {
     render() {
         return (
             <div className="unauthenticated-app">
+                <img id="mainLogo" src={"/assets/img/CondorSmall.png"} />
                 <h1>Condor</h1>
                 {
                     this.state.error !== null &&

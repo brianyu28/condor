@@ -29,6 +29,12 @@ button {
         background-color: $white_dark;
     }
 
+    &.btn-small {
+        font-size: 11px;
+        height: 23px;
+        padding: 4px 8px;
+    }
+
     &.btn-primary {
         background-color: $blue1;
         color: $white;

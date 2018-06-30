@@ -3,9 +3,9 @@ import { bindActionCreators, Dispatch } from "redux";
 
 import * as Actions from "../actions/Actions";
 import * as Reducers from "../reducers/Reducers";
-import { ApplicationState, defaultState } from "../reducers/State";
+import { ApplicationState } from "../reducers/State";
 
-import App from "../components/App";
+import Content from "../components/Content";
 
 export function mapStateToProps(state: ApplicationState) {
   return {
@@ -14,4 +14,4 @@ export function mapStateToProps(state: ApplicationState) {
   };
 }
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, null)(Content);
