@@ -2,5 +2,7 @@
 *.swp
 .env
 npm-debug.log
+yarn.lock
+yarn-error.log
 node_modules/
 condor-client/src/css/
