@@ -43,7 +43,7 @@ class Header extends React.Component<Props> {
                 </div>
                 <div className="controls">
                     {this.props.username}
-                    <button className="btn-small" onClick={this.props.logout}>Log Out</button>
+                    <button className="btn-small" onClick={this.logout}>Log Out</button>
                 </div>
             </div>
         );

@@ -59,7 +59,6 @@ class Login extends React.Component<Props, State> {
             if (!data.authenticated) {
                 this.setState({error: data.error!, username: "", password: ""});
             } else {
-                console.log(data);
                 this.props.addLoginToken(data.username, data.token!);
             }
         });

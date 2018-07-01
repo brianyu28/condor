@@ -3,8 +3,8 @@ import express from "express";
 import mongoose from "mongoose";
 import path from "path";
 
-import * as home from "./api/Home";
-import * as authentication from "./api/Authentication";
+import * as authentication from "./controllers/AuthenticationController";
+import * as projects from "./controllers/ProjectsController";
 
 const app = express();
 app.use(bodyParser.urlencoded({extended: true}))
@@ -19,12 +19,11 @@ mongoose.connect(process.env.DB_URI).then(() => {
     console.log("Database connection error.");
 });
 
-// Basic routes
-app.get("/hello", home.index);
-app.get("/testing", home.testing);
-
 app.post("/api/authentication/login", authentication.login);
 app.post("/api/authentication/logout", authentication.logout);
+
+app.get("/api/projects", projects.get);
+app.post("/api/projects/add", projects.add);
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../../condor-client/build")));

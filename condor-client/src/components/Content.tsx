@@ -1,5 +1,7 @@
 import * as React from "react";
 
+import ProjectsContainer from "../containers/ProjectsContainer";
+
 import "../css/Content.css";
 
 interface Props {
@@ -16,7 +18,7 @@ class Content extends React.Component<Props> {
     render() {
         return (
             <div id="content">
-                You are logged in as {this.props.username}.
+                <ProjectsContainer />
             </div>
         );
     }

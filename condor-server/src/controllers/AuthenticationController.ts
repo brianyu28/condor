@@ -1,9 +1,10 @@
+import _ from "lodash";
+import mongoose from "mongoose";
+const passwordHash = require("password-hash");
+
 import { Request, Response } from "express";
 import { User, UserModel, UserToken } from "../models/User";
 import { addToken, removeToken } from "../utils/AuthenticationUtils";
-
-const passwordHash = require("password-hash");
-const mongoose = require("mongoose");
 
 export let login = async (req: Request, res: Response) => {
 
@@ -62,3 +63,28 @@ export let logout = async (req: Request, res: Response) => {
         });
     }
 };
+
+// Helpers
+
+// Authenticate users and sort through tokens
+export let authenticate = async (username: string, token: string): Promise<UserModel | null> => {
+    try {
+        const user: UserModel | null = await User.findOne({ username });
+        if (user === null) {
+            return null;
+        }
+        let d: Date = new Date();
+        const tokenIndex: number = _.findIndex(user.tokens, (userToken: UserToken) => userToken.token === token);
+        if (tokenIndex !== -1) {
+            user.tokens[tokenIndex].lastUse = d;
+            await user.save();
+        }
+        d.setDate(d.getDate() - 14);
+        await User.updateOne({ username }, {
+            "$pull": { tokens: { lastUse: { "$lte": d }}}
+        });
+        return (tokenIndex !== -1) ? user : null;
+    } catch (error) {
+        return null;
+    }
+}
